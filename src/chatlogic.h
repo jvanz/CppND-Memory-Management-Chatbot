@@ -5,27 +5,20 @@
 #include <string>
 #include <memory>
 #include "chatgui.h"
+#include "graphnode.h"
 
 // forward declarations
 class ChatBot;
-class GraphEdge;
-class GraphNode;
 
 class ChatLogic
 {
 private:
-    //// STUDENT CODE
-    ////
-
     // data handles (owned)
     std::vector<std::unique_ptr<GraphNode>> _nodes;
 
-    ////
-    //// EOF STUDENT CODE
-
     // data handles (not owned)
     GraphNode *_currentNode;
-    std::shared_ptr<ChatBot> _chatBot;
+    ChatBot *_chatBot;
     ChatBotPanelDialog *_panelDialog;
 
     // proprietary type definitions
@@ -37,8 +30,7 @@ private:
 
 public:
     // constructor / destructor
-    ChatLogic();
-    ~ChatLogic();
+    ChatLogic() {};
     ChatLogic(ChatLogic&& source);
     ChatLogic& operator=(ChatLogic&& source);
     // Chatlogic cannot be copied because of the vector of unique_ptr to the nodes
@@ -47,6 +39,7 @@ public:
 
     // getter / setter
     void SetPanelDialogHandle(ChatBotPanelDialog *panelDialog);
+    void SetChatBot(ChatBot *chatbot) { _chatBot = chatbot; }
 
     // proprietary functions
     void LoadAnswerGraphFromFile(std::string filename);
