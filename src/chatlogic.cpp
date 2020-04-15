@@ -181,7 +181,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     chatBot.SetChatLogicHandle(this);
     // add chatbot to graph root node
     chatBot.SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(chatBot);
+    rootNode->MoveChatbotHere(std::move(chatBot));
 }
 
 void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
