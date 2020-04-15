@@ -58,6 +58,7 @@ ChatBot& ChatBot::operator=(const ChatBot& source)
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     _chatLogic = source._chatLogic;
+    return *this;
 }
 
 ChatBot::ChatBot(ChatBot&& source)
@@ -86,6 +87,7 @@ ChatBot& ChatBot::operator=(ChatBot&& source)
     _chatLogic = source._chatLogic;
     _chatLogic->SetChatBot(this);
     source._chatLogic = nullptr;
+    return *this;
 }
 
 void ChatBot::ReceiveMessageFromUser(std::string message)

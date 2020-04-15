@@ -14,6 +14,7 @@ GraphNode::GraphNode(GraphNode&& source)
 GraphNode& GraphNode::operator=(GraphNode&& source)
 {
     _childEdges = std::move(source._childEdges);
+    return *this;
 }
 
 void GraphNode::AddToken(std::string token)

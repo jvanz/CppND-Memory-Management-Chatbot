@@ -20,6 +20,7 @@ ChatLogic::ChatLogic(ChatLogic&& source)
 ChatLogic& ChatLogic::operator=(ChatLogic&& source)
 {
     _nodes = std::move(source._nodes);
+    return *this;
 }
 
 template <typename T>
